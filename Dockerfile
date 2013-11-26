@@ -22,5 +22,8 @@ RUN LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get -y install neo4j
 
 EXPOSE 7474
 
+#stop the default neo4j service
+RUN service neo4j-service stop
+
 # start neo4j server, available at http://localhost:7474 of the target machine
-CMD neo4j start
+CMD /var/lib/neo4j/bin/neo4j start
